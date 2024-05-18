@@ -1,0 +1,31 @@
+[package]
+name = "agadir"
+version = "0.1.0"
+authors = ["pythops <contact@pythops.com>"]
+license = "GPL-3.0"
+edition = "2021"
+description = "Blogging over the terminal"
+readme = "Readme.md"
+homepage = "https://github.com/pythops/agadir"
+repository = "https://github.com/pythops/agadir"
+
+[dependencies]
+crossterm = { version = "0.27", features = ["event-stream"] }
+ratatui = "0.26"
+bat = "0.24"
+chrono = "0.4"
+dirs = "5"
+ansi-to-tui = "4"
+serde_yaml = "0.9"
+serde = "1"
+russh = "0.43"
+russh-keys = "0.43"
+tokio = { version = "1", features = ["full"] }
+async-trait = "0.1"
+futures = "0.3"
+anyhow = "1"
+clap = { version = "4", features = ["derive", "cargo"] }
+ed25519-dalek = "2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing-error = "0.2"
