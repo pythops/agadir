@@ -1,5 +1,6 @@
 use russh_keys::key::KeyPair;
-use tracing::info;
+use std::process::exit;
+use tracing::{error, info};
 
 use std::{
     cmp::Reverse,
@@ -31,7 +32,23 @@ async fn main() {
         }
     };
 
+    if !main_dir.exists() {
+        error!(
+            "The directory {:?} does not exist. Please create it before continuing",
+            main_dir
+        );
+        exit(1);
+    }
+
     let posts_dir = main_dir.join("posts");
+
+    if !posts_dir.exists() {
+        error!(
+            "The directory {:?} does not exist. Please create it before continuing",
+            posts_dir
+        );
+        exit(1);
+    }
 
     let posts = load_posts(posts_dir, formatter);
 
